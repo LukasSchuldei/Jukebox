@@ -11,6 +11,7 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 
 
+
 def get_token():
     
     #encode request
@@ -91,7 +92,7 @@ def search_for_song(token, song_name):
 #get token    
 token = get_token()
 #artist suchen
-result=search_for_artist(token, "BHZ")
+result=search_for_artist(token, "Sting")
 print(result["name"])
 artist_id = result["id"]
 #top songs requesten
@@ -100,7 +101,7 @@ artist_top_songs = get_songs_by_artist(token, artist_id)
 for idx, song in enumerate(artist_top_songs):
     print(f"{idx+1}. {song['name']}")
 #nach song suchen    
-songs = search_for_song(token, "Lieblingsworte  ")
+songs = search_for_song(token, "Englishmen in new york")
 #songs ausgeben, mit namen
 if songs is not None:
     for idx, tracks in enumerate(songs["items"]):
